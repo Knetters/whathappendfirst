@@ -55,9 +55,8 @@
         });
 
         document.getElementById('playAgain').addEventListener('click', function(event) {
-            const GOUI = document.getElementById('game-over');
-            GOUI.classList.remove('active');
-            checkAnswer()
+            gameOver()
+            fillGame()
         });
     });
 </script>
