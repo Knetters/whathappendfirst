@@ -70,7 +70,7 @@
 
         document.getElementById('play').addEventListener('click', function(event) {
             const startUI = document.getElementById("start")
-            startUI.style.display = "none";
+            startUI.style.transform = "translateY(-100vh)";
         });
     });
 </script>
@@ -190,6 +190,7 @@
         color: #f2f2f2;
         padding: 2rem;
         z-index: 9999;
+        transition: .2s ease-in-out;
     }
 
     .game-over {
