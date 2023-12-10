@@ -38,7 +38,16 @@
 
     function gameOver() {
         const GOUI = document.getElementById('game-over');
-        GOUI.classList.toggle('active');
+        if (GOUI.classList.contains('active')) {
+            GOUI.classList.toggle('active');
+            resetScore();
+        } else {
+            GOUI.classList.toggle('active');
+        }
+    }
+
+    function resetScore() {
+        roundValue = "0"
     }
 
     fillGame()
@@ -58,10 +67,21 @@
             gameOver()
             fillGame()
         });
+
+        document.getElementById('play').addEventListener('click', function(event) {
+            const startUI = document.getElementById("start")
+            startUI.style.display = "none";
+        });
     });
 </script>
 
 <main>
+
+    <div id="start" class="start">
+        <h1>What happend first</h1>
+        <p>Choose the image of the event that happend first in history and build a streak!</p>
+        <button id="play">Play</button>
+    </div>
 
     <section class="round" id="1">
         <article id="a">
@@ -160,16 +180,33 @@
         text-align: center;
     }
 
+    .start {
+        position: absolute;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        color: #f2f2f2;
+        padding: 2rem;
+        z-index: 9999;
+    }
+
     .game-over {
         position: absolute;
         top: 0;
         text-align: center;
         width: 100%;
         height: 100%;
-        background-color: #cbb24f;
+        background-color: #000;
+        color: #f2f2f2;
         padding: 2rem;
         margin-top: 100vh;
         transition: .2s ease-in-out;
+    }
+
+    .game-over span {
+        color: #cbb24f;
     }
 
 </style>
