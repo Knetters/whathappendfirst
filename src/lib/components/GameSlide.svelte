@@ -72,6 +72,8 @@
             const startUI = document.getElementById("start")
             startUI.style.transform = "translateY(-100vh)";
         });
+
+        
     });
 </script>
 
@@ -79,7 +81,7 @@
 
     <div id="start" class="start">
         <h1>What happend first</h1>
-        <p>Choose the image of the event that happend first in history and build a streak!</p>
+        <p>Choose the event that happend first in history and build a streak!</p>
         <button id="play">Play</button>
     </div>
 
@@ -98,11 +100,11 @@
         </article>
     </section>
 
-    <h3>Streak: {roundValue}</h3>
+    <h3>Streak: <span class="counter">{roundValue}</span></h3>
 
     <div id="game-over" class="game-over">
-        <p>Game Over</p>
-        <p>You got <span>{roundValue}</span> right!</p>
+        <p class="game-over-text">Game Over</p>
+        <p>You got <span class="counter">{roundValue}</span> right!</p>
         <button id="playAgain">Play again</button>
     </div>
 </main>
@@ -112,6 +114,29 @@
         height: 100vh;
         position: relative;
         overflow: hidden;
+    }
+
+    h1 {
+        font-family: 'Silkscreen', sans-serif;
+        text-shadow: 3px 0px 0px #cb4f4f;
+        margin-top: 20vh;
+        margin-bottom: 1rem;
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    button {
+        font-family: 'Silkscreen', sans-serif;
+        padding: .8rem 3rem 1rem 3rem;
+        font-size: 3rem;
+        margin-top: 4rem;
+        border: 3px solid #4869ff;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: .9;
     }
 
     h3 {
@@ -127,6 +152,10 @@
         border: 3px solid #cbb24f;
     }
 
+    .counter {
+        font-family: 'Silkscreen', sans-serif;
+    }
+
     section {
         width: 100vw;
         height: 100vh;
@@ -137,7 +166,6 @@
     }
 
     article {
-        border-radius: 1rem;
         position: relative;
         transition: .2s;
         cursor: pointer;
@@ -146,14 +174,12 @@
     }
 
     article:hover {
-        margin: -.5rem;
+        margin: -.2rem;
         opacity: 1;
-        box-shadow: #ffffff 0px 0px 20px;
     }
 
     .image-container {
         position: relative;
-        border-radius: 1rem;
         height: 100%;
         width: 100%;
     }
@@ -162,22 +188,24 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 1rem;
     }
 
     h2 {
         position: absolute;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #f2f2f2;
         background-color: #00000063;
-        text-shadow: 0px 0px 10px #000;
+        text-shadow: 0px 0px 10px #4d4d4d;
         padding: .3rem 1rem;
-        top: 4rem;
+        top: 2rem;
         left: 50%;
         width: max-content;
+        max-width: 90%;
+        margin-left: auto;
         transform: translate(-50%, -50%);
         border-radius: .5rem;
         text-align: center;
+        font-family: 'Silkscreen', sans-serif;
     }
 
     .start {
@@ -210,5 +238,11 @@
         color: #cbb24f;
     }
 
+    .game-over-text {
+        font-family: 'Silkscreen', sans-serif;
+        text-shadow: 3px 0px 0px #cb4f4f;
+        margin-top: 20vh;
+        font-size: 5rem;
+    }
 </style>
   
